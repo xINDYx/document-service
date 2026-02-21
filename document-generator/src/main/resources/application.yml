@@ -1,0 +1,12 @@
+spring:
+  main:
+    web-application-type: none
+
+generator:
+  count: 100
+  service-url: http://localhost:8080
+  initiator: generator-tool
+
+logging:
+  level:
+    com.itq.generator: INFO

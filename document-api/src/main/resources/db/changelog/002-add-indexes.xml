@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="002-idx-documents-status" author="itq">
+        <createIndex tableName="documents" indexName="idx_documents_status">
+            <column name="status"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="002-idx-documents-author" author="itq">
+        <createIndex tableName="documents" indexName="idx_documents_author">
+            <column name="author"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="002-idx-documents-created-at" author="itq">
+        <createIndex tableName="documents" indexName="idx_documents_created_at">
+            <column name="created_at"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="002-idx-documents-search" author="itq">
+        <createIndex tableName="documents" indexName="idx_documents_status_author_created">
+            <column name="status"/>
+            <column name="author"/>
+            <column name="created_at"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="002-idx-history-document-id" author="itq">
+        <createIndex tableName="document_history" indexName="idx_history_document_id">
+            <column name="document_id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="002-idx-approval-document-id" author="itq">
+        <createIndex tableName="approval_registry" indexName="idx_approval_document_id" unique="true">
+            <column name="document_id"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>
